@@ -34,4 +34,4 @@ class Shelf extends Component {
   }
 }
 
-explort default Shelf
+export default Shelf

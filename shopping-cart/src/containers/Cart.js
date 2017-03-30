@@ -11,7 +11,7 @@ class Cart extends Component {
     this.state = {}
   }
   render() {
-    const CartItems = this.props.car.map((item, id) => {
+    const CartItems = this.props.cart.map((item, id) => {
       return (
         <li key={id}>
           {item}
@@ -29,3 +29,22 @@ class Cart extends Component {
     )
   }
 }
+
+
+function mapStateToProps(state, props) {
+  return {
+    cart: state.cart
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(CartActions, dispatch)
+  }
+}
+
+const connection = connect(mapStateToProps, mapDispatchToProps)
+
+const wrappedComponent = connection(Cart)
+
+export default wrappedComponent
